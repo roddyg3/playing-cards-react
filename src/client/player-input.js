@@ -5,9 +5,8 @@ import Button from '@material-ui/core/Button';
 class PlayerInput extends Component {
   constructor(props){
     super(props);
-    this.state = {value: 0};
+    this.state = {numPlayers: 0};
     // this.submit = this.submit.bind(this);
-    this.numPlayers = 0;
   }
 
   deckSize(input){
@@ -15,11 +14,11 @@ class PlayerInput extends Component {
   }
 
   buttonClick(){
-    if(this.state.value < 1 || this.state.value > 52){
+    if(this.state.numPlayers < 1 || this.state.numPlayers > 52){
       return alert('Please specify between 1-52 players');
-    }    
-    this.numPlayers = this.state.value;
-    this.props.retrievePlayers(this.state.value);
+    }
+    this.numPlayers = this.state.numPlayers;
+    this.props.retrievePlayers(this.state.numPlayers);
   }
   
   render(){
@@ -28,10 +27,10 @@ class PlayerInput extends Component {
           <label>How Many Players? </label>
           <TextField 
             id="input-num-players" 
-            defaultValue={this.state.value}
+            defaultValue={this.state.numPlayers}
             onChange={
                 (event) => {
-                  this.setState({value: event.target.value})
+                  this.setState({numPlayers: event.target.value})
                 }              
               }
           />

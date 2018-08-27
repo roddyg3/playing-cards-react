@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlayerInput from './player-input';
 import ShowHands from './show-hands';
+import ListPlayers from './list-players';
 import Player from '../components/player';
 import Deck from '../components/deck';
 
@@ -14,12 +15,15 @@ class PlayingCardsClient extends Component {
     this.players = [];
   }
   
-  setPlayers = (numPlayers) => {
+  setupGame = (numPlayers) => {
     this.setState({numPlayers: {numPlayers}});
     this.CreatePlayers(numPlayers);
+    this.SetUpDeck();
+    this.ShuffleAndDeal(this.shuffleCount, this.players);
   }
 
   CreatePlayers(numPlayers) {
+    this.players.splice(0,this.players.length);
     for (let i = 1; i <= numPlayers; i += 1) {
       this.players.push(new Player(`Player ${i}`));
     }
@@ -38,22 +42,13 @@ class PlayingCardsClient extends Component {
     this.playingDeck.Deal(players);
   }
 
-  SetUpGame() {
-    this.GetPlayerInput();
-    this.SetUpDeck();
-    this.CreatePlayers(this.numPlayers);
-    this.ShuffleAndDeal(this.shuffleCount, this.players);
-    this.ShowPlayersHands();
-  }
-
   render() {
     return (
       <div className="playing-cards-client">
         <p className="intro">Playing Cards React</p>
-        <PlayerInput retrievePlayers={this.setPlayers}/>
-        <ShowHands 
-          players = {this.players}
-        />
+        <PlayerInput retrievePlayers={this.setupGame}/>
+        <ListPlayers players = {this.players}/>
+        <ShowHands players = {this.players}/>
       </div>
     );
   }

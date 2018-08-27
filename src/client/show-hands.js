@@ -9,7 +9,7 @@ class ShowHands extends Component {
   }
 
   renderHands(){
-    let hands;
+    let hands = '';
     this.players.forEach((player) => {
       if (player.hand.length > 0) {
         hands += `${player.name}'s hand:\n${player.hand.map(e => `${e.icon}`).join(', ')}\n`;
@@ -24,7 +24,7 @@ class ShowHands extends Component {
     return(
       <div className="show-hands">
         <Button 
-          onClick={() => this.setState({showHands: true})}
+          onClick={() => this.setState({showHands: !this.state.showhands})}
         >Show Hands</Button>
         <p>Player Hand(s):</p><br />
         {this.state.showHands ? this.renderHands() : null}
