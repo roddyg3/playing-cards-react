@@ -30,10 +30,11 @@ class ShowHands extends Component {
   render(){
     return(
       <div className="show-hands">
+      <p>Player Hand(s): 
         <Button 
           onClick={() => this.handleClick()}
         >Show Hands</Button>
-        <p>Player Hand(s):</p><br />
+      </p>
         {this.state.showHands ? this.renderHands() : null}
       </div>
     );
