@@ -8,6 +8,12 @@ class ShowHands extends Component {
     this.state = {showHands: false}
   }
 
+  handleClick = () => {
+		this.setState((prevState) => {
+			return {showHands: !prevState.showHands};
+		});
+	}
+
   renderHands = () => {
     let hands = [];
     this.players.forEach((player) => {
@@ -25,7 +31,7 @@ class ShowHands extends Component {
     return(
       <div className="show-hands">
         <Button 
-          onClick={() => this.setState({showHands: !this.state.showhands})}
+          onClick={() => this.handleClick()}
         >Show Hands</Button>
         <p>Player Hand(s):</p><br />
         {this.state.showHands ? this.renderHands() : null}
