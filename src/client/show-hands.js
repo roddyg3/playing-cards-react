@@ -8,16 +8,17 @@ class ShowHands extends Component {
     this.state = {showHands: false}
   }
 
-  renderHands(){
-    let hands = '';
+  renderHands = () => {
+    let hands = [];
     this.players.forEach((player) => {
       if (player.hand.length > 0) {
-        hands += `${player.name}'s hand:\n${player.hand.map(e => `${e.icon}`).join(', ')}\n`;
+        hands.push(<p>{`${player.name}'s hand: ${player.hand.map(e => `${e.icon}`).join(', ')}`}</p>);
       } else {
-        hands += `${player.name}'s hand is empty!\n`;
+        hands.push(<p>{`${player.name}'s hand is empty!`}</p>);
       }
     });
-    return(<p>{hands}</p>);
+
+    return(<div className="players-hands">{hands}</div>);
   }
 
   render(){

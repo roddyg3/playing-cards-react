@@ -6,7 +6,14 @@ class ListPlayers extends Component {
     this.players = props.players;
   }
   render() {
-    return (<p>{this.players.map(e => `${e.name}`).join(', ')}</p>);
+    return (
+      <div className="list-players">
+        <p>Players:</p>
+        <p>
+          {this.players.map(e => `${e.name}`).join(', ')}
+        </p>
+      </div>
+    );
   };
 }
 
