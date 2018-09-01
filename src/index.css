@@ -1,0 +1,44 @@
+body{
+    background-color: mediumseagreen;
+    margin: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.show-hands{
+
+}
+
+.show-hands-toggle{
+    font-weight: bold;
+}
+
+.players-hands{
+    font-size: 11pt;
+}
+
+.list-players{
+    font-weight: bold;
+}
+
+.player-list{
+    font-weight: normal;
+}
+
+.playing-cards-client{
+
+}
+
+.title{
+    font-size: 24pt;
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+
+.player-input{
+    font-weight: bold;
+}
+
+.input-num-players{
+    font-weight: normal;
+}

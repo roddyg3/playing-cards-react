@@ -30,8 +30,8 @@ class ShowHands extends Component {
   render(){
     return(
       <div className="show-hands">
-      <p>Player Hand(s): 
-        <Button 
+      <p className="show-hands-toggle">
+        <Button variant="raised"
           onClick={() => this.handleClick()}
         >Show Hands</Button>
       </p>

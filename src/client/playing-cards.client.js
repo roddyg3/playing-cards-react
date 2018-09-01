@@ -45,7 +45,7 @@ class PlayingCardsClient extends Component {
   render() {
     return (
       <div className="playing-cards-client">
-        <p className="intro">Playing Cards React</p>
+        <p className="title">Playing Cards React</p>
         <PlayerInput retrievePlayers={this.setupGame}/>
         <ListPlayers players = {this.players}/>
         <ShowHands players = {this.players}/>

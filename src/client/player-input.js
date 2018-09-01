@@ -6,7 +6,7 @@ class PlayerInput extends Component {
   constructor(props){
     super(props);
     this.state = {numPlayers: 0};
-    // this.submit = this.submit.bind(this);
+    this.deckSize = 52;
   }
 
   deckSize(input){
@@ -14,8 +14,8 @@ class PlayerInput extends Component {
   }
 
   buttonClick(){
-    if(this.state.numPlayers < 1 || this.state.numPlayers > 52){
-      return alert('Please specify between 1-52 players');
+    if(this.state.numPlayers < 1 || this.state.numPlayers > this.deckSize){
+      return alert(`Please specify between 1-${this.deckSize} players`);
     }
     this.numPlayers = this.state.numPlayers;
     this.props.retrievePlayers(this.state.numPlayers);
@@ -24,9 +24,9 @@ class PlayerInput extends Component {
   render(){
     return(
       <div className="player-input">
-          <label>How Many Players? </label>
+          <p className="player-question">How Many Players?</p>
           <TextField 
-            id="input-num-players" 
+          className="input-num-players" 
             defaultValue={this.state.numPlayers}
             onChange={
                 (event) => {
@@ -34,7 +34,7 @@ class PlayerInput extends Component {
                 }              
               }
           />
-          <Button 
+          <Button variant="raised"
             onClick={() => this.buttonClick()}
           >Deal!</Button>          
       </div>

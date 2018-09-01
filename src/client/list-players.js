@@ -9,7 +9,7 @@ class ListPlayers extends Component {
     return (
       <div className="list-players">
         <p>Players:</p>
-        <p>
+        <p className="player-list">
           {this.players.map(e => `${e.name}`).join(', ')}
         </p>
       </div>
