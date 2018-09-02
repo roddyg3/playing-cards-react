@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class ListPlayers extends Component {
   constructor(props){
     super(props);
-    this.players = props.players;
+    this.players = this.props.players;
   }
   render() {
     return (

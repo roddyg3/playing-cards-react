@@ -26,7 +26,7 @@ class PlayerInput extends Component {
       <div className="player-input">
           <p className="player-question">How Many Players?</p>
           <TextField 
-          className="input-num-players" 
+            className="input-num-players" 
             defaultValue={this.state.numPlayers}
             onChange={
                 (event) => {
@@ -34,9 +34,12 @@ class PlayerInput extends Component {
                 }              
               }
           />
-          <Button variant="raised"
+          <Button 
+            variant="raised" 
+            className="deal-button"
             onClick={() => this.buttonClick()}
-          >Deal!</Button>          
+            >Deal!
+          </Button>
       </div>
     );
   }

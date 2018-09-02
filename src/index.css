@@ -41,4 +41,9 @@ body{
 
 .input-num-players{
     font-weight: normal;
+    margin-right: 5px;
+}
+
+.deal-button{
+    margin-left: 5px;
 }

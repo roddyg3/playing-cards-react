@@ -19,6 +19,10 @@ class Deck {
     return this.cards.length;
   }
 
+  Configure() {
+    
+  }
+
   /**
    * Create the deck using all combinations of suits and values
    */

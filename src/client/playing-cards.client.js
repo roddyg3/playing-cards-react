@@ -47,8 +47,10 @@ class PlayingCardsClient extends Component {
       <div className="playing-cards-client">
         <p className="title">Playing Cards React</p>
         <PlayerInput retrievePlayers={this.setupGame}/>
-        <ListPlayers players = {this.players}/>
-        <ShowHands players = {this.players}/>
+        {this.players.length > 0 ? 
+          <ListPlayers players = {this.players}/> : null}
+        {this.players.length > 0 ? 
+          <ShowHands players = {this.players}/> : null}
       </div>
     );
   }
