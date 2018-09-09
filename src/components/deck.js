@@ -27,6 +27,7 @@ class Deck {
    * Create the deck using all combinations of suits and values
    */
   Create() {
+    this.cards = [];
     this.suits.forEach((suit) => {
       this.values.forEach((value) => {
         this.cards.push(new PlayingCard(suit, value));
