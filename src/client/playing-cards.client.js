@@ -8,18 +8,18 @@ import Deck from '../components/deck';
 class PlayingCardsClient extends Component {
   constructor() {
     super();
-    this.state = {numPlayers: 0}
+    this.state = {numPlayers: 0, cardsPerPlayer: 0}
     this.playingDeck = new Deck();
     // 7 is optimal for ripple shuffling
     this.shuffleCount = 7;
     this.players = [];
   }
   
-  setupGame = (numPlayers) => {
-    this.setState({numPlayers: {numPlayers}});
+  setupGame = (numPlayers, cardsPerPlayer) => {
+    this.setState({numPlayers: {numPlayers}, cardsPerPlayer: {cardsPerPlayer}});
     this.CreatePlayers(numPlayers);
     this.SetUpDeck();
-    this.ShuffleAndDeal(this.shuffleCount, this.players);
+    this.ShuffleAndDeal(this.shuffleCount, this.players, cardsPerPlayer);
   }
 
   CreatePlayers(numPlayers) {
@@ -35,22 +35,25 @@ class PlayingCardsClient extends Component {
     this.playingDeck.ShowContents();
   }
 
-  ShuffleAndDeal(shuffleCount, players) {
+  ShuffleAndDeal(shuffleCount, players, cardsPerPlayer) {
     this.playingDeck.Shuffle(shuffleCount);
     console.log('Shuffle results:');
     this.playingDeck.ShowContents();
-    this.playingDeck.Deal(players);
+    this.playingDeck.Deal(players, cardsPerPlayer);
   }
 
   render() {
     return (
       <div className="playing-cards-client">
         <p className="title">Playing Cards React</p>
-        <PlayerInput retrievePlayers={this.setupGame}/>
-        {this.players.length > 0 ? 
+        <PlayerInput playerInput={this.setupGame} />
+        {this.players.length > 0 ?
           <ListPlayers players = {this.players}/> : null}
-        {this.players.length > 0 ? 
-          <ShowHands players = {this.players}/> : null}
+        {this.players.length > 0 ?
+          <ShowHands 
+            players = {this.players}
+            deck = {this.playingDeck}
+          /> : null}
       </div>
     );
   }

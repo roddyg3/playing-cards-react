@@ -73,8 +73,8 @@ class Deck {
   /**
    * Cycle through the deck of cards and deal to each player round-robin
    */
-  Deal(players) {
-    const totalCards = this.getDeckSize();
+  Deal(players, cardsPerPlayer) {
+    const totalCards = players.length * cardsPerPlayer;
 
     for (let i = 0; i < totalCards; i += 1) {
       const currentPlayer = players[i % players.length];

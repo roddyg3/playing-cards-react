@@ -5,6 +5,7 @@ class ShowHands extends Component {
   constructor(props){
     super(props);
     this.players = props.players;
+    this.deck = props.deck;
     this.state = {showHands: false}
   }
 
@@ -27,6 +28,11 @@ class ShowHands extends Component {
     return(<div className="players-hands">{hands}</div>);
   }
 
+  renderDeck = () => {
+    let deckRender = <p>{`Deck contents: ${this.deck.cards.map(e => `${e.icon}`).join(', ')}`}</p>
+    return(<div className="playing-deck">{deckRender}</div>);
+  }
+
   render(){
     return(
       <div className="show-hands">
@@ -36,6 +42,7 @@ class ShowHands extends Component {
         >Show Hands</Button>
       </p>
         {this.state.showHands ? this.renderHands() : null}
+        {this.state.showHands ? this.renderDeck() : null}
       </div>
     );
   }
